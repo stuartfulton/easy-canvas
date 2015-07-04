@@ -1,5 +1,5 @@
 var EasyCanvas = (function(window, undefined){
-	var _EasyImage = function(canvasId){
+	var _EasyCanvas = function(canvasId){
 		this.canvas = document.getElementById(canvasId);
 		this.g = canvas.getContext('2d');
 		this.width = canvas.width;
@@ -7,7 +7,7 @@ var EasyCanvas = (function(window, undefined){
 		this.image = this.g.createImageData(this.width, this.height);
 	}
 	
-	_EasyImage.prototype.setPixel = function (x, y, Color) {
+	_EasyCanvas.prototype.setPixel = function (x, y, Color) {
 		var base = ((y * this.width) + x) * 4;
 		this.image.data[base] = Color.r;
 		this.image.data[base + 1] = Color.g;
@@ -15,14 +15,14 @@ var EasyCanvas = (function(window, undefined){
 		this.image.data[base + 3] = Color.a;
 	};
 	
-	_EasyImage.prototype.Color = function(r, g, b, a) {
+	_EasyCanvas.prototype.Color = function(r, g, b, a) {
 		this.r = r || 0;
 		this.g = g || 0;
 		this.b = b || 0;
 		this.a = a || 255;
 	};
 	
-	_EasyImage.prototype.rect = function(x1, y1, width, height, color){
+	_EasyCanvas.prototype.rect = function(x1, y1, width, height, color){
 		var x2 = x1 + width;
 		var y2 = y1 + height;
 		for (var x = x1; x <= x2; x++){
@@ -32,11 +32,11 @@ var EasyCanvas = (function(window, undefined){
 		}
 	}
 	
-	_EasyImage.prototype.draw = function(originX, originY){
+	_EasyCanvas.prototype.draw = function(originX, originY){
 		this.g.putImageData(this.image, originX, originY);
 	};
 
-	return _EasyImage;
+	return _EasyCanvas;
 })();
 
 var ezi = new EasyCanvas('canvas');
