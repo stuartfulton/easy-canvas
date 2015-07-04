@@ -4,7 +4,7 @@ var EasyCanvas = (function(window, undefined){
 		this.g = canvas.getContext('2d');
 		this.width = canvas.width;
 		this.height = canvas.height;
-		this.image = graphicsContext.createImageData(width, height);
+		this.image = g.createImageData(width, height);
 	}
 	
 	_EasyImage.prototype.setPixel = function (x, y, Color) {
