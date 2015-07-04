@@ -1,5 +1,7 @@
 var EasyImage = (function(window, undefined){
 	var _EasyImage = function(width, height, graphicsContext){
+        this.width = width;
+        this.height = height;
 		this.image = graphicsContext.createImageData(width, height);
 		this.pixelData = this.image.data;
 	}
