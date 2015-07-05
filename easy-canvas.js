@@ -6,6 +6,16 @@ var EasyCanvas = (function(window, undefined){
 		this.height = canvas.height;
 		this.image = this.g.createImageData(this.width, this.height);
 	}
+    
+    _EasyCanvas.prototype.getPixel = function (x, y) {
+        var base = ((y * this.width) + x) * 4;
+        return {
+            r: this.image.data[base],
+            g: this.image.data[base + 1],
+            b: this.image.data[base + 2],
+            a: this.image.data[base + 3]
+        };
+    }
 	
 	_EasyCanvas.prototype.setPixel = function (x, y, Color) {
 		var base = ((y * this.width) + x) * 4;
